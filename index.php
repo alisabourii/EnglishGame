@@ -9,7 +9,7 @@ if (!isset($_SESSION['kullanici_adi'])) {
 }
 
 // Kullanıcı adını session'dan al
-$kullanici_adi = $_SESSION['kullanici_adi'];
+$level = $_SESSION['kullanici_adi'];
 ?>
 
 <!DOCTYPE html>
@@ -28,16 +28,41 @@ $kullanici_adi = $_SESSION['kullanici_adi'];
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="style.css">
+    <script>
+        var selector = [];
+    </script>
+    <?php if($level == "1"){?>
+        <script>selector = [{ "color": "#f82", "label": "Hello" },
+                { "color": "#0bf", "label": "By" }]; </script> <?php }?>
+    <?php if($level == "2"){?>
+        <script>selector = [{ "color": "#f82", "label": "School" },
+                { "color": "#0bf", "label": "Teacher" }]; </script> <?php }?>
+    <?php if($level == "3"){?>
+        <script>selector = [{ "color": "#f82", "label": "Cyber" },
+                { "color": "#0bf", "label": "Hacher" }]; </script> <?php }?>
 </head>
-<body onload="generateRoutate(this)">
+<body onload="generateRoutate(selector)">
         <div class="carouseDiv">
-        <div id="wheelOfFortune" style="margin-top: 1%; margin-left: 20%;">
+        <div id="wheelOfFortune" style="margin-top: 1%; margin-left: 0%;">
                 <canvas id="wheel" width="600" height="600"></canvas>
                 <div id="spin">SPIN asd asd asd as dasd as dasd asd asd as d</div>
         </div>
         </div>
-        <div class="panelDiv"><p>Merhaba, <strong><?php echo htmlspecialchars($kullanici_adi); ?></strong>! Bu bilgiyi birinci sayfadan aldık.</p>
+        <div class="panelDiv"><p>Merhaba, <strong><?php echo htmlspecialchars($level); ?></strong>! Bu bilgiyi birinci sayfadan aldık.</p>
         </div>
         <script src="app.js"></script>
 </body>
 </html>
+
+<?php
+$hostName = "localhost";
+$userName = "root";
+$password = "";
+$dbName = "basicwords";
+$conn= new mysqli($hostName,$userName,$password,$dbName);
+if($conn){
+    echo "connected";
+}else{
+    echo "not connected";
+}
+?>
