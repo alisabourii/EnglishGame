@@ -76,11 +76,14 @@ $level = $_SESSION['kullanici_adi'];
         <div class="carouseDiv">
         <div id="wheelOfFortune" style="margin-top: 1%; margin-left: 0%;">
                 <canvas id="wheel" width="600" height="600"></canvas>
-                <div id="spin">SPIN asd asd asd as dasd as dasd asd asd as d</div>
+                <div id="spin"></div>
         </div>
         </div>
-        <div class="panelDiv"><p>Merhaba, <strong><?php echo htmlspecialchars($level); ?></strong>! Bu bilgiyi birinci sayfadan aldık.</p>
-            <label id="word"></label>
+        <div class="panelDiv">
+           <h1>Come to learn words!</h1>
+            <label> What is mind  <label id="word" style="color: gold"></label><label>?</label>
+                <input placeholder="Enter Your Answer here!!" style="height: 21px; width: 40%; font-size: 18px; color: black" id="answer"  >
+                <button id="sumbitBtn" style=""  class="btn btn-secondary">Sumbit</button>
         </div>
         <script src="app.js"></script>
 </body>
