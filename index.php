@@ -32,8 +32,39 @@ $level = $_SESSION['kullanici_adi'];
         var selector = [];
     </script>
     <?php if($level == "1"){?>
-        <script>selector = [{ "color": "#f82", "label": "Hello" },
-                { "color": "#0bf", "label": "By" }]; </script> <?php }?>
+        <script>selector = [
+                { "color": "#f82", "label": "apple" },
+                { "color": "#0bf", "label": "pear" },
+                { "color": "#fa0", "label": "table" },
+                { "color": "#0f8", "label": "pen" },
+                { "color": "#80f", "label": "notebook" },
+                { "color": "#f08", "label": "car" },
+                { "color": "#08f", "label": "house" },
+                { "color": "#ff0", "label": "road" },
+                { "color": "#0ff", "label": "dog" },
+                { "color": "#f0f", "label": "cat" },
+                { "color": "#a52", "label": "flower" },
+                { "color": "#5a5", "label": "tree" },
+                { "color": "#2a8", "label": "sea" },
+                { "color": "#e67", "label": "lake" },
+                { "color": "#f30", "label": "sun" },
+                { "color": "#2b8", "label": "moon" },
+                { "color": "#39f", "label": "star" },
+                { "color": "#c9d", "label": "mountain" },
+                { "color": "#a1f", "label": "river" },
+                { "color": "#f11", "label": "tea" },
+                { "color": "#1f7", "label": "coffee" },
+                { "color": "#ff5", "label": "water" },
+                { "color": "#e60", "label": "bread" },
+                { "color": "#d34", "label": "cheese" },
+                { "color": "#f70", "label": "milk" },
+                { "color": "#97f", "label": "oil" },
+                { "color": "#3f9", "label": "egg" },
+                { "color": "#f3a", "label": "meat" },
+                { "color": "#08a", "label": "fish" },
+                { "color": "#8e9", "label": "chicken" },
+                { "color": "#f5c", "label": "duck" }
+            ]; </script> <?php }?>
     <?php if($level == "2"){?>
         <script>selector = [{ "color": "#f82", "label": "School" },
                 { "color": "#0bf", "label": "Teacher" }]; </script> <?php }?>
@@ -49,20 +80,23 @@ $level = $_SESSION['kullanici_adi'];
         </div>
         </div>
         <div class="panelDiv"><p>Merhaba, <strong><?php echo htmlspecialchars($level); ?></strong>! Bu bilgiyi birinci sayfadan aldık.</p>
+            <label id="word"></label>
         </div>
         <script src="app.js"></script>
 </body>
 </html>
 
+
 <?php
 $hostName = "localhost";
 $userName = "root";
 $password = "";
-$dbName = "basicwords";
+$dbName = "database name";
 $conn= new mysqli($hostName,$userName,$password,$dbName);
 if($conn){
     echo "connected";
 }else{
     echo "not connected";
 }
+
 ?>
