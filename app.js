@@ -70,9 +70,9 @@ function generateRoutate(sectors) {
     const rotate = () => {
         const sector = sectors[getIndex()];
         ctx.canvas.style.transform = `rotate(${ang - PI / 2}rad)`;
-        elSpin.textContent = "ÇEVİR";
+        elSpin.textContent = "SPIN";
         elSpin.style.background = sector.color;
-        const sairAdi = document.getElementById("sairAdi");
+       document.getElementById("word").innerHTML = sector.label;
 
     };
 
