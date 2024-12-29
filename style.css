@@ -1,7 +1,7 @@
 .carouseDiv{
         width: 50%;
         height: 90%;
-        background-color: orange;
+        background-color: rgba(213, 108, 108, 0.87);
         float: left;
 }
 .panelDiv{
