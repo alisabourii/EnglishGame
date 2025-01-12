@@ -82,24 +82,9 @@ $level = $_SESSION['kullanici_adi'];
         <div class="panelDiv">
            <h1>Come to learn words!</h1>
             <label> What is mind  <label id="word" style="color: gold"></label><label>?</label>
-                <input placeholder="Enter Your Answer here!!" style="height: 21px; width: 40%; font-size: 18px; color: black" id="answer"  >
-                <button id="sumbitBtn" style=""  class="btn btn-secondary">Sumbit</button>
+                <input placeholder="Cevabınız(TR)" style="height: 21px; width: 40%; font-size: 18px; color: black" id="answer"  >
+                <button id="sumbitBtn" style=""  class="btn btn-secondary" onclick="controlTranslate()">Sumbit</button>
         </div>
         <script src="app.js"></script>
 </body>
 </html>
-
-
-<?php
-$hostName = "localhost";
-$userName = "root";
-$password = "";
-$dbName = "database name";
-$conn= new mysqli($hostName,$userName,$password,$dbName);
-if($conn){
-    echo "connected";
-}else{
-    echo "not connected";
-}
-
-?>
