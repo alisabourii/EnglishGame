@@ -408,6 +408,7 @@ const dictionary = {
     "kapsam": "scope"
 };
 
+var totalScore = 0;
 function translateWord(word) {
     const translatedWord = dictionary[word.toLowerCase()];
     if (translatedWord) {
@@ -423,9 +424,32 @@ function controlTranslate() {
     const englishWord = translateWord(input);
     console.log(`${selectedWord} -> ${englishWord}`);
     if(selectedWord == englishWord){
-        alert("True");
+        startEmojiEffect(true);
+        totalScore ++;
     }else{
-        alert("False");
+        startEmojiEffect(false);
+        totalScore --;
+    }
+    document.getElementById('score').innerText = totalScore;
+}
+
+function startEmojiEffect(efects) {
+    const emojis = efects?["🎉", "⭐"]:[" 💥 ", "❌"];
+    for (let i = 0; i < 50; i++) {
+        const emojiElement = document.createElement("div");
+        emojiElement.classList.add("emoji");
+        emojiElement.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+
+        // Rastgele pozisyon
+        emojiElement.style.left = `${Math.random() * 100}vw`;
+        emojiElement.style.animationDuration = `${Math.random() * 2 + 2}s`;
+
+        document.body.appendChild(emojiElement);
+
+        // Animasyon bitince elemanı sil
+        emojiElement.addEventListener('animationend', () => {
+            emojiElement.remove();
+        });
     }
 }
 
