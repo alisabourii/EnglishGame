@@ -81,9 +81,22 @@ $level = $_SESSION['kullanici_adi'];
         </div>
         <div class="panelDiv">
            <h1>Come to learn words!</h1>
-            <label> What is mind  <label id="word" style="color: gold"></label><label>?</label>
-                <input placeholder="Cevabınız(TR)" style="height: 21px; width: 40%; font-size: 18px; color: black" id="answer"  >
+            <div class="smallDiv">
+                <label style="font-size: 25px"> What is mind  <label id="word" style="color: gold"></label><label>?</label>
+            </div>
+
+            <div class="smallDiv">
+                <input placeholder="Cevabınız" style="height: 21px; width: 40%; font-size: 18px; color: black" id="answer"  >
                 <button id="sumbitBtn" style=""  class="btn btn-secondary" onclick="controlTranslate()">Sumbit</button>
+            </div>
+            <br>
+            <div style="height: 542px">
+                <h1>Total Score:</h1>
+                <h1 style="margin-left: 12%" id="score">0</h1>
+            </div>
+
+
+
         </div>
         <script src="app.js"></script>
 </body>
