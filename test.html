@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Başarı Efekti</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 24px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+        }
+
+        .emoji {
+            position: fixed;
+            top: -50px;
+            font-size: 40px;
+            animation: fall 3s linear forwards;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+<h1>Soruyu Çöz!</h1>
+<p>5 + 3 kaç eder?</p>
+<input type="number" id="answer" placeholder="Cevabınızı girin">
+<button onclick="checkAnswer()">Cevabı Kontrol Et</button>
+<p id="result"></p>
+
+<script>
+    function checkAnswer() {
+        const answer = document.getElementById("answer").value;
+        const resultText = document.getElementById("result");
+
+        if (parseInt(answer) === 8) {
+            resultText.textContent = "Tebrikler! Doğru cevap 🎉";
+            resultText.style.color = "green";
+
+            // Efekt başlat
+            startEmojiEffect();
+        } else {
+            resultText.textContent = "Yanlış cevap, tekrar dene!";
+            resultText.style.color = "red";
+        }
+    }
+
+    function startEmojiEffect() {
+        const emojis = ["🎉", "⭐"];
+        for (let i = 0; i < 50; i++) {
+            const emojiElement = document.createElement("div");
+            emojiElement.classList.add("emoji");
+            emojiElement.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+
+            // Rastgele pozisyon
+            emojiElement.style.left = `${Math.random() * 100}vw`;
+            emojiElement.style.animationDuration = `${Math.random() * 2 + 2}s`;
+
+            document.body.appendChild(emojiElement);
+
+            // Animasyon bitince elemanı sil
+            emojiElement.addEventListener('animationend', () => {
+                emojiElement.remove();
+            });
+        }
+    }
+</script>
+</body>
+</html>
