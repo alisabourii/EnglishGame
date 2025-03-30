@@ -102,105 +102,9 @@ function generateRoutate(sectors) {
         engine(); // Start engine!
     });
 
-    // INIT!
     sectors.forEach(drawSector);
     rotate(); // Initial rotation
 }
-const dictionary = {
-    "elma": "apple",
-    "armut": "pear",
-    "masa": "table",
-    "kalem": "pen",
-    "defter": "notebook",
-    "araba": "car",
-    "ev": "house",
-    "yol": "road",
-    "köpek": "dog",
-    "kedi": "cat",
-    "çiçek": "flower",
-    "ağaç": "tree",
-    "deniz": "sea",
-    "göl": "lake",
-    "güneş": "sun",
-    "ay": "moon",
-    "yıldız": "star",
-    "dağ": "mountain",
-    "nehir": "river",
-    "çay": "tea",
-    "kahve": "coffee",
-    "su": "water",
-    "ekmek": "bread",
-    "peynir": "cheese",
-    "süt": "milk",
-    "yağ": "oil",
-    "yumurta": "egg",
-    "et": "meat",
-    "balık": "fish",
-    "tavuk": "chicken",
-    "ördek": "duck",
-    "nar": "pomegranate",
-    "ayva": "quince",
-    "tezgah": "countertop",
-    "kalem": "stylus",
-    "el yazması": "manuscript",
-    "araç": "automobile",
-    "konut": "residence",
-    "otoyol": "highway",
-    "köpek": "canine",
-    "kedi": "feline",
-    "çiçeklenme": "blossom",
-    "yaprak düzeni": "foliage",
-    "okyanus": "ocean",
-    "göl": "reservoir",
-    "güneşle ilgili": "solarium",
-    "ay altı": "celestial body",
-    "takımyıldız": "constellation",
-    "dağ yamacı": "escarpment",
-    "ırmak kolu": "tributary",
-    "çay bitkisi": "camellia",
-    "espresso": "espresso",
-    "içilebilir": "beverage",
-    "ekmek somunu": "loaf",
-    "peynircilik": "fromage",
-    "laktoz": "lactose",
-    "yağlayıcı": "lubricant",
-    "yumurta": "ovum",
-    "protein": "protein",
-    "balık": "aquatic vertebrate",
-    "kümes hayvanı": "poultry",
-    "ördek": "mallard",
-    "nar ağacı": "punicaceae",
-    "ayva ağacı": "cydonia",
-    "büfe": "credenza",
-    "grafit kalem": "graphium",
-    "hukuki taslak": "codicil",
-    "taşıt": "vehiculum",
-    "konut alanı": "domicilium",
-    "karayolu": "carriageway",
-    "köpekgiller": "canidae",
-    "kedigiller": "felidae",
-    "çiçeklenme yapısı": "inflorescence",
-    "yaprak dizilimi": "phyllotaxy",
-    "açık deniz": "pelagic",
-    "göllerle ilgili": "lacustrine",
-    "güneşe ilişkin": "heliacal",
-    "dünyevi": "sublunary",
-    "gök cismi": "asterism",
-    "dağ oluşumu": "orogeny",
-    "nehirle ilgili": "fluviatile",
-    "çaygiller": "camelliales",
-    "kahve yağı": "caffeol",
-    "içilebilir su": "potable",
-    "ekmek yapımı": "panification",
-    "peynir yapımı": "caseiculture",
-    "süt şekeri": "galactose",
-    "yağlı madde": "oleaginous",
-    "zigot": "zygote",
-    "kas proteini": "myoglobin",
-    "balıkla ilgili": "ichthyic",
-    "tavukgiller": "galliformes",
-    "yeşil başlı ördek": "anas platyrhynchos"
-};
 
 var totalScore = 0;
 function translateWord(word) {
@@ -213,15 +117,15 @@ function translateWord(word) {
 }
 
 function controlTranslate() {
-// Kullanım örneği
     var input = document.getElementById("answer").value;
-    const englishWord = translateWord(input);
-    console.log(`${selectedWord} -> ${englishWord}`);
-    if(selectedWord == englishWord){
-        startEmojiEffect(true);
+    var translate = (translateText(input, "tr", "en").then(console.log)).toString();
+    console.log(selectedWord);
+    if(selectedWord == translate){
+        /*startEmojiEffect(true);
         totalScore ++;
         $('#answer').val('');
-        $('#word').text('spin again');
+        $('#word').text('spin again');*/
+        console.log("Done!");
 
     }else{
         startEmojiEffect(false);
@@ -237,25 +141,21 @@ function startEmojiEffect(efects) {
         emojiElement.classList.add("emoji");
         emojiElement.textContent = emojis[Math.floor(Math.random() * emojis.length)];
 
-        // Rastgele pozisyon
         emojiElement.style.left = `${Math.random() * 100}vw`;
         emojiElement.style.animationDuration = `${Math.random() * 2 + 2}s`;
 
         document.body.appendChild(emojiElement);
 
-        // Animasyon bitince elemanı sil
         emojiElement.addEventListener('animationend', () => {
             emojiElement.remove();
         });
     }
 }
 
-
 var input = document.getElementById("answer");
 input.addEventListener("keypress", function(event) {
     if (event.key === "Enter") {
         event.preventDefault();
         document.getElementById("sumbitBtn").click();
-
     }
 });
